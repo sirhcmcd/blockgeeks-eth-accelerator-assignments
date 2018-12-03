@@ -67,12 +67,23 @@
                 // TODO: Get the latest block number
                 provider.getBlockNumber().then((blockNumber) => {
                     console.log("Current block number: " + blockNumber);
+                    var last10Blocks = [];
 
                 // TODO: Get the last 10 blocks and pass the result to printBlock() function
                     for (var i=blockNumber; i > blockNumber-10; i--) {
+
                         provider.getBlock(i).then((block) => {
-                            console.log(block);
-                            printBlock(block);
+                            last10Blocks.push(block);
+
+                            if (last10Blocks.length == 10) {
+                                last10Blocks.sort((a,b) => (a.number > b.number) ? -1 : ((b.number > a.number) ? 1 : 0)); 
+                                
+                                for (var x in last10Blocks) {
+                                    console.log(block);
+                                    printBlock(last10Blocks[x]);
+                                }
+                            }
+
                         });
                     }
 
