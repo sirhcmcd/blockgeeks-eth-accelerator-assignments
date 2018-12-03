@@ -69,17 +69,13 @@
                     console.log("Current block number: " + blockNumber);
 
                 // TODO: Get the last 10 blocks and pass the result to printBlock() function
-                    for (var i=0; i < 10; i++) {
-                        provider.getBlock(blockNumber).then((block) => {
+                    for (var i=blockNumber; i > blockNumber-10; i--) {
+                        provider.getBlock(i).then((block) => {
                             console.log(block);
                             printBlock(block);
                         });
-  
-                        blockNumber--;
-
                     }
                 });
-
             }
 
 
@@ -104,10 +100,7 @@
                 cell5.innerHTML = block['transactions'].length;
             }
 
-
         </script>
-
-
 
     </div>
 </body>
