@@ -1,0 +1,18 @@
+.candidate {
+    margin-bottom: 50px;
+}
+
+.candidate .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.candidate button {
+    margin: 10px;
+}
+
+.jumbotron {
+    background-color: dodgerblue;
+    color: white;
+}
